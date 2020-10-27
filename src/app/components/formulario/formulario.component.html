@@ -1,0 +1,92 @@
+<div class="container">
+    <h1 class="text-center">Mi formulario</h1>
+    <form autocomplete="off" (ngSubmit)="enviarFormulario(formdata)" #formdata="ngForm">
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Nombre</label>
+            <div class="col-8">
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Escribe tu nombre"
+                    name="nombre"
+                    ngModel
+                    minlength="3"
+                    [class.is-invalid]="nombre.invalid && nombre.touched"
+                    #nombre="ngModel"
+                    required>
+                <small class="form-group row text-danger m-auto" *ngIf="nombre.invalid && nombre.touched">
+                    El nombre debe contener al menos 3 caracteres
+                </small>
+            </div>
+            
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Apellido</label>
+            <div class="col-8">
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Escribe tu apellido"
+                    name="apellido"
+                    ngModel
+                    minlength="2"
+                    [class.is-invalid]="apellido.invalid && apellido.touched"
+                    #apellido="ngModel"
+                    required>
+                <small class="form-group row text-danger m-auto" *ngIf="apellido.invalid && apellido.touched">
+                    El apellido debe contener al menos 2 caracteres
+                </small>
+            </div>
+            
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Edad</label>
+            <div class="col-8">
+                <input 
+                    type="number" 
+                    class="form-control" 
+                    placeholder="Escribe tu apellido"
+                    min="0"
+                    max="90"
+                    name="edad"
+                    ngModel
+                    >
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Email</label>
+            <div class="col-8">
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Escribe tu correo"
+                    name="correo"
+                    ngModel
+                    required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                    [class.is-invalid]="correo.invalid && correo.touched"
+                    #correo="ngModel"
+                    >
+                <small class="form-group row text-danger m-auto" *ngIf="correo.invalid && correo.touched">
+                    Formato del correo incorrecto
+                </small>
+            </div>
+         
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Ciudad</label>
+            <div class="col-8">
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Escribe tu ciudad"
+                    name="ciudad"
+                    ngModel
+                    >
+            </div>
+        </div>
+        <div class="form d-flex justify-content-center">
+            <button type="submit" class="btn btn-dark">Enviar</button>
+        </div>
+    </form>
+</div>
